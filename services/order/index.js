@@ -16,7 +16,7 @@ const factories = {
 module.exports.create = ({ database }) => {
 
     return {
-        create: factories.CreateFactory.create({ database }),
+        createNewOrder: factories.CreateFactory.create({ database }),
         fetchById: factories.FetchByIdFactory.create({ database }),
         list: factories.ListFactory.create({ database }),
         removeById: factories.RemoveByIdFactory.create({ database }),

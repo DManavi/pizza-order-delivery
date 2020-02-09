@@ -16,6 +16,7 @@ module.exports.create = ({ config, services, validations, middlewares }) => {
 
     // intentionally, I've added an application cause I wanted to add nested routers to it.
     const app = express();
+    app.use(express.json());
 
     /* ************************* */
     /* THESE ARE THE MAIN ROUTES */
