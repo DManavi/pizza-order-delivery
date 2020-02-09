@@ -4,8 +4,8 @@
 
 'use strict';
 
-module.exports.create = ({ deleteById }) =>
+module.exports.create = ({ removeById }) =>
     (req, res, next) =>
-        deleteById({ id: req.params.id })
+        removeById({ orderId: req.params.id })
             .then(() => res.status(204).send())
             .catch(next);

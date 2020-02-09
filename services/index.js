@@ -4,10 +4,18 @@
 
 'use strict';
 
-module.exports.create = ({ }) => {
+const factories = {
+    DatabaseFactory: require('./database'),
+    OrderFactory: require('./order')
+};
+
+module.exports.create = ({ config }) => {
+
+    const database = factories.DatabaseFactory.create({ ...config.database });
 
     const output = {
-        services: {}
+        database,
+        order: factories.OrderFactory.create({ database })
     };
 
     return output;
