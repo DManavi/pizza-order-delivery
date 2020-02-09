@@ -1,5 +1,5 @@
 /**
- * Order routes
+ * Pizza size routes
  */
 
 'use strict';
@@ -16,7 +16,7 @@ module.exports.create = ({ appName, appVersion }) => {
 
     const router = express.Router();
 
-    router.all('*', (req, res) => res.send({ msg: 'order' }));
+    router.all('*', (req, res) => res.send({ msg: 'pizza-size' }));
 
     return router;
 };
