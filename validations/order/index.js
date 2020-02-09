@@ -30,7 +30,8 @@ module.exports.create = () => {
             orderItemFactory: factories.OrderItemFactory,
             pizzaSizes,
             pizzaTypes,
-            statuses
+            statuses,
+            isUpdate: true
         }),
 
         pizzaSizes,
