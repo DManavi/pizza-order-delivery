@@ -1,0 +1,46 @@
+{
+  "name": "pizza-order-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pizza order and delivery - Test",
+  "main": "bin/www",
+  "scripts": {
+    "debug": "nodemon ./debug.js",
+    "debug:vscode": "node --inspect ./debug.js",
+    "test": "mocha tests/index.js --exit",
+    "coverage": "nyc -e .ts -x \"tests/**/*.js\" npm run test",
+    "coverage-export": "nyc -r lcov -e .js -x \"tests/**/*.js\" npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DManavi/pizza-order-delivery.git"
+  },
+  "keywords": [],
+  "author": "Danial Manavi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DManavi/pizza-order-delivery/issues"
+  },
+  "homepage": "https://github.com/DManavi/pizza-order-delivery#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2",
+    "nyc": "^15.0.0"
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.0",
+    "env-var": "^5.2.0",
+    "express": "^4.17.1",
+    "get-env": "^0.5.10",
+    "http-errors": "^1.7.3",
+    "http-status-codes": "^1.4.0",
+    "morgan": "^1.9.1",
+    "ms": "^2.1.2",
+    "pg": "^7.18.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.4"
+  }
+}
