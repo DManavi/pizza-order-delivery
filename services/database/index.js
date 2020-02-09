@@ -7,8 +7,12 @@
 const ms = require('ms');
 const { Sequelize } = require('sequelize');
 
-module.exports.create = ({ host, port, name, username, password, maximumClients, idleTimeout }) =>
-    new Sequelize(
+const ModelsFactory = require('./models');
+
+module.exports.create = ({ host, port, name, username, password, maximumClients, idleTimeout }) => {
+
+    // initialize sequelize
+    const connection = new Sequelize(
         {
             dialect: 'postgres',
             host,
@@ -22,3 +26,9 @@ module.exports.create = ({ host, port, name, username, password, maximumClients,
             }
         }
     );
+
+    // initialize models
+    const models = ModelsFactory.create({ connection });
+
+    return { connection, models };
+}

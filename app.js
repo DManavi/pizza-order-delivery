@@ -30,6 +30,7 @@ module.exports.create = () => {
     const routes = RoutesFactory.create({ config, services, validations, middlewares });
 
     /* PLEASE ADD YOUR ROUTES AFTER THIS LINE */
+    app.use(middlewares.DatabaseReadyFactory.create({ connection: services.database.connection }));
 
     // /api application (it's not a router)
     app.use('/api', routes.api);

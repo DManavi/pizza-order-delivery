@@ -5,6 +5,7 @@
 'use strict';
 
 module.exports = {
+    DatabaseReadyFactory: require('./database-ready.js'),
     ErroHandlerFactory: require('./error-handler.js'),
     LoggerFactory: require('./logger.js'),
     MetaFactory: require('./meta.js'),
