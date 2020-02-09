@@ -10,6 +10,7 @@ const ConfigFactory = require('./config');
 const middlewares = require('./middlewares');
 const RoutesFactory = require('./routes');
 const ServicesFactory = require('./services');
+const ValidationsFactory = require('./validations');
 
 /**
  * Create a new instance of the express application
@@ -20,10 +21,15 @@ module.exports.create = () => {
     const config = ConfigFactory.create();
 
     app.use(middlewares.LoggerFactory.create({ ...config }));
+    app.use(middlewares.MetaFactory.create());
+
+
+    const services = ServicesFactory.create({ ...config });
+    const validations = ValidationsFactory.create();
+
+    const routes = RoutesFactory.create({ config, services, validations, middlewares });
 
     /* PLEASE ADD YOUR ROUTES AFTER THIS LINE */
-    const services = ServicesFactory.create({ ...config });
-    const routes = RoutesFactory.create({ config, services });
 
     // /api application (it's not a router)
     app.use('/api', routes.api);
