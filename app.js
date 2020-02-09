@@ -22,7 +22,7 @@ module.exports.create = () => {
     app.use(middlewares.LoggerFactory.create({ ...config }));
 
     /* PLEASE ADD YOUR ROUTES AFTER THIS LINE */
-    const services = ServicesFactory.create({ config });
+    const services = ServicesFactory.create({ ...config });
     const routes = RoutesFactory.create({ config, services });
 
     // /api application (it's not a router)
