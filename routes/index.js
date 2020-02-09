@@ -8,11 +8,11 @@ const factories = {
     ApiFactory: require('./api')
 };
 
-module.exports.create = ({ config, services, middlewares }) => {
+module.exports.create = ({ config, services, validations, middlewares }) => {
 
     const routes = {
 
-        api: factories.ApiFactory.create({ config, services, middlewares })
+        api: factories.ApiFactory.create({ config, services, validations, middlewares })
     };
 
     return routes;

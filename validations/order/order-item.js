@@ -1,0 +1,5 @@
+/**
+ * Order item
+ */
+
+'use strict';
