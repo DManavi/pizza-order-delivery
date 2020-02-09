@@ -8,6 +8,8 @@ const express = require('express');
 
 const ConfigFactory = require('./config');
 const middlewares = require('./middlewares');
+const RoutesFactory = require('./routes');
+const ServicesFactory = require('./services');
 
 /**
  * Create a new instance of the express application
@@ -20,7 +22,11 @@ module.exports.create = () => {
     app.use(middlewares.LoggerFactory.create({ ...config }));
 
     /* PLEASE ADD YOUR ROUTES AFTER THIS LINE */
+    const services = ServicesFactory.create({ config });
+    const routes = RoutesFactory.create({ config, services });
 
+    // /api application (it's not a router)
+    app.use('/api', routes.api);
 
     /* PLEASE ADD YOUR ROUTES BEFORE THIS LINE */
 
