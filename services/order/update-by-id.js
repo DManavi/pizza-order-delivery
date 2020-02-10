@@ -6,5 +6,5 @@
 
 module.exports.create = ({ database }) => async ({ orderId }) => {
 
-    return orderId;
+    return { id: orderId };
 };
