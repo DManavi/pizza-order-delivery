@@ -14,8 +14,6 @@ module.exports.create = ({ fetchById }) => (req, res, next) =>
                 return next(createError[404]());
             }
 
-            console.log('ORDER', order);
-
             return res.status(200).send(order);
         })
         .catch(next);
