@@ -6,5 +6,14 @@
 
 module.exports.create = ({ database }) => async ({ orderId }) => {
 
-    return { orderId };
+    const order = await database.models.Order.findOne(
+        {
+            where: {
+                id: orderId
+            },
+            include: [database.models.Customer, database.models.OrderItem]
+        }
+    );
+
+    return order;
 };

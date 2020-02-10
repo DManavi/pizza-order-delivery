@@ -14,9 +14,7 @@ module.exports.create = ({ connection }) => {
     OrderItem.init({
         id: {
             type: Sequelize.INTEGER,
-            autoIncrementIdentity: true,
-            allowNull: true,
-            unique: true,
+            autoIncrement: true,
             primaryKey: true
         },
         qty: {

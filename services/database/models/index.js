@@ -21,15 +21,11 @@ module.exports.create = ({ connection }) => {
     // Setup relations
 
     // 1 order has N order item(s)
-    models.Order.hasMany(models.OrderItem, {
-        onDelete: 'CASCADE'
-    });
+    models.Order.hasMany(models.OrderItem);
     models.OrderItem.belongsTo(models.Order);
 
     // 1 user has N order(s)
-    models.Customer.hasMany(models.Order, {
-        onDelete: 'CASCADE'
-    });
+    models.Customer.hasMany(models.Order);
     models.Order.belongsTo(models.Customer);
 
     return models;
