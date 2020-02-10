@@ -14,7 +14,7 @@ const factories = {
     UpdateByIdFactory: require('./update-by-id.js')
 };
 
-module.exports.create = ({ database }) => {
+module.exports.create = ({ database, validations }) => {
 
     return {
         createNewOrder: factories.CreateFactory.create({ database }),
@@ -22,6 +22,6 @@ module.exports.create = ({ database }) => {
         fetchStatusById: factories.FetchStatusById.create({ database }),
         list: factories.ListFactory.create({ database }),
         removeById: factories.RemoveByIdFactory.create({ database }),
-        updateById: factories.UpdateByIdFactory.create({ database }),
+        updateById: factories.UpdateByIdFactory.create({ database, validations }),
     };
 };

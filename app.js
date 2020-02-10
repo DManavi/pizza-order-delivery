@@ -24,8 +24,8 @@ module.exports.create = () => {
     app.use(middlewares.MetaFactory.create());
 
 
-    const services = ServicesFactory.create({ config });
     const validations = ValidationsFactory.create();
+    const services = ServicesFactory.create({ config, validations });
 
     const routes = RoutesFactory.create({ config, services, validations, middlewares });
 
