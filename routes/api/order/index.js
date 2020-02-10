@@ -9,6 +9,7 @@ const express = require('express');
 const routes = {
     CreateFactory: require('./create.js'),
     FetchByIdFactory: require('./fetch-by-id.js'),
+    FetchStatusByIdFactory: require('./fetch-status-by-id.js'),
     ListFactory: require('./list.js'),
     UpdateFactory: require('./update-by-id.js'),
     RemoveByIdFactory: require('./remove-by-id')
@@ -29,6 +30,9 @@ module.exports.create = ({ services, validations, middlewares }) => {
 
     // Retrieve an order using it's ID
     router.get('/:id', routes.FetchByIdFactory.create({ ...services.order }));
+
+    // Retrieve an order's status using it's ID
+    router.get('/:id/status', routes.FetchStatusByIdFactory.create({ ...services.order }));
 
     // Filter the list of orders using both status and customer information
     router.get('/', [
