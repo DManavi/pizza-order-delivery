@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "1a3d347a-c1df-4520-95f5-42dc3fc2adae",
+		"name": "Pizza Delivery - Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "POST /",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customer\": {\n\t\t\"name\": \"Danial\",\n\t\t\"address\": \"123 Ave\"\n\t},\n\t\"items\": [\n\t\t{\n\t\t\t\"type\": \"margarita\",\n\t\t\t\"size\": \"small\",\n\t\t\t\"qty\": 1\n\t\t},\n\t\t{\n\t\t\t\"type\": \"margarita\",\n\t\t\t\"size\": \"large\",\n\t\t\t\"qty\": 4\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}"
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}?",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "delivered",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "dan",
+									"disabled": true
+								},
+								{
+									"key": "address",
+									"value": "Ave",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}/:id",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "18"
+								}
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /:id/status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}/:id/status",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}",
+								":id",
+								"status"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"items\": [\n\t\t{\n\t\t\t\"type\": \"salami\",\n\t\t\t\"size\": \"medium\",\n\t\t\t\"qty\": 3\n\t\t},\n\t\t{\n\t\t\t\"type\": \"margarita\",\n\t\t\t\"size\": \"small\",\n\t\t\t\"qty\": 1\n\t\t},\n\t\t{\n\t\t\t\"type\": \"marinara\",\n\t\t\t\"size\": \"large\",\n\t\t\t\"qty\": 2\n\t\t}\n\t],\n\t\"status\": \"delivered\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}/:id",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "22"
+								}
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				},
+				{
+					"name": "DEL /:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER_URL}}/{{BASE_URL}}/{{API_ORDER}}/:id",
+							"host": [
+								"{{SERVER_URL}}"
+							],
+							"path": [
+								"{{BASE_URL}}",
+								"{{API_ORDER}}",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "20"
+								}
+							]
+						},
+						"description": "List all orders"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "482de54c-a0cf-4c8a-8217-e10a3870ba17",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e520408c-7f07-4b4f-bb12-70ce6ae8619d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1b312b38-a844-48ff-bd69-984ef81a7181",
+			"key": "SERVER_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"id": "a72d8886-4e3d-4896-a9af-8dc427131d69",
+			"key": "BASE_URL",
+			"value": "api",
+			"type": "string"
+		},
+		{
+			"id": "50b45e61-be49-48d1-b354-e0ab5fea1ece",
+			"key": "API_ORDER",
+			"value": "order",
+			"type": "string"
+		},
+		{
+			"id": "d2ad518b-d7f0-46bb-a528-9ebc5307157f",
+			"key": "API_HEALTH",
+			"value": "_health",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
